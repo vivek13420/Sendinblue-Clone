@@ -14,8 +14,11 @@ import {
   PopoverArrow,
   PopoverCloseButton,
   PopoverAnchor,
+  Link,
+  Divider,
 } from "@chakra-ui/react";
 import React from "react";
+import { Link as ReactLink } from "react-router-dom"
 
 const Navbar = () => {
   return (
@@ -28,29 +31,163 @@ const Navbar = () => {
       />
       <Spacer />
       <Flex gap="2rem" alignItems="center">
-        <Popover trigger="hover" >
+        <Popover trigger="hover">
           <PopoverTrigger>
-          <Text fontSize="lg">Solutions</Text>
+            <Link fontSize="lg" href="#">
+              Solutions
+            </Link>
           </PopoverTrigger>
-          <PopoverContent>
+          <PopoverContent boxShadow="lg">
             <PopoverArrow />
-            <PopoverBody p="2rem" >
-              <Text mb="10px" >Why Sendinblue?</Text>
-              
-              <Text>Enterprise</Text>
+            <PopoverBody p="2rem">
+              <Flex flexDirection="column">
+                <Link href="#" mb="10px">
+                  Why Sendinblue?
+                </Link>
+                <Spacer />
+                <Link href="#">Enterprise</Link>
+              </Flex>
             </PopoverBody>
           </PopoverContent>
         </Popover>
-        
-        <Text fontSize="lg">Solutions</Text>
-        <Text fontSize="lg">Solutions</Text>
-        <Text fontSize="lg">Solutions</Text>
-        <Text fontSize="lg">Solutions</Text>
+        <Link fontSize="lg" href="#">
+          Pricing
+        </Link>
+        <Popover trigger="hover">
+          <PopoverTrigger>
+            <Link fontSize="lg" href="#">
+              Features
+            </Link>
+          </PopoverTrigger>
+          <PopoverContent width="500px" boxShadow="lg">
+            <PopoverArrow />
+            <PopoverBody p="2rem">
+              <Flex>
+                <Flex flexDirection="column">
+                  <Spacer />
+                  <Link as="" fontSize="lg" fontWeight="bold">
+                    Communicate
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Email Marketing
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Email API
+                  </Link>
+                  <Link as="" fontSize="md">
+                    SMS Marketing
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Chat
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Inbox
+                  </Link>
+                </Flex>
+                <Spacer />
+                <Spacer />
+                <Divider variant="solid" orientation="vertical" />
+
+                <Flex flexDirection="column">
+                  <Link as="" fontSize="lg" fontWeight="bold">
+                    Personalize
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Email Marketing
+                  </Link>
+                  <Link as="" fontSize="md">
+                    CRM
+                  </Link>
+                  <Link as="" fontSize="md">
+                    CRM
+                  </Link>
+                </Flex>
+                <Spacer />
+                <Spacer />
+                <Divider variant="solid" orientation="vertical" />
+                <Flex flexDirection="column">
+                  <Link as="" fontSize="lg" fontWeight="bold">
+                    Convert
+                  </Link>
+                  <Link as="" fontSize="md">
+                    SignUP Forms
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Landing Pages
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Facebook Ads
+                  </Link>
+                </Flex>
+              </Flex>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+        <Popover trigger="hover">
+          <PopoverTrigger>
+            <Link fontSize="lg" href="#">
+              Resources
+            </Link>
+          </PopoverTrigger>
+          <PopoverContent boxShadow="lg">
+            <PopoverArrow />
+            <PopoverBody p="2rem">
+              <Flex>
+                <Flex flexDirection="column">
+                  <Spacer />
+                  <Link as="" fontSize="lg" fontWeight="bold">
+                    Communicate
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Email Marketing
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Email API
+                  </Link>
+                  <Link as="" fontSize="md">
+                    SMS Marketing
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Chat
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Inbox
+                  </Link>
+                </Flex>
+                <Spacer />
+                <Spacer />
+                <Divider variant="solid" orientation="vertical" />
+
+                <Flex flexDirection="column">
+                  <Link as="" fontSize="lg" fontWeight="bold">
+                    Personalize
+                  </Link>
+                  <Link as="" fontSize="md">
+                    Email Marketing
+                  </Link>
+                  <Link as="" fontSize="md">
+                    CRM
+                  </Link>
+                  <Link as="" fontSize="md">
+                    CRM
+                  </Link>
+                </Flex>
+
+                <Box></Box>
+              </Flex>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+        <Link>Blog</Link>
+        {/* <Link fontSize="lg">Solutions</Link>
+        <Link fontSize="lg">Solutions</Link>
+        <Link fontSize="lg">Solutions</Link>
+        <Link fontSize="lg">Solutions</Link> */}
       </Flex>
       <Spacer />
-      <Flex alignItems="center">
-        <Text>Login</Text>
-        <Button>Sign up free</Button>
+      <Flex alignItems="center" gap="1rem">
+        <Link as={ReactLink} to='/login' fontWeight="bold" >Log in</Link>
+        <Button as={ReactLink} to='/signup' fontSize="lg" borderRadius="300" color="white" p="2rem" bg="rgb(0,146,255)" variant="solid" >Sign up free</Button>
       </Flex>
     </Flex>
   );
