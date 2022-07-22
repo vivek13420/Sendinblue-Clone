@@ -28,7 +28,6 @@ function AuthContextProvider({ children }) {
         password: password,
       });
       setToken(user.data.token);
-      setUserName(userName);
       setIsAuth(!isAuth);
     } catch (error) {
       console.log(error);
