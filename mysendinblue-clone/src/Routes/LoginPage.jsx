@@ -1,4 +1,4 @@
-import { Box, Button, Container, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Container, Heading, Input, Spacer, Text } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -29,6 +29,8 @@ const LoginPage = () => {
   };
   return (
     <Container>
+        <Heading m="2rem" >Login page</Heading>
+        
       <Input
         onChange={handleChange}
         name="email"
@@ -43,7 +45,7 @@ const LoginPage = () => {
         variant="filled"
         placeholder="password"
       ></Input>
-      <Button onClick={handleClick}>Submit</Button>
+      <Button onClick={()=>value.handleSubmit(data)}>Submit</Button>
       {error && <Text>Something went wrong</Text> }
     </Container>
   );
