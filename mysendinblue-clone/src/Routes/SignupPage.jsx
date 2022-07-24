@@ -6,6 +6,7 @@ import {
   Input,
   Text,
   FormLabel,
+  Heading,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
@@ -34,6 +35,7 @@ const SignupPage = () => {
   };
   return (
     <Container>
+        <Heading>Signup Page</Heading>
       <FormControl>
         <FormLabel>UserName</FormLabel>
         <Input
