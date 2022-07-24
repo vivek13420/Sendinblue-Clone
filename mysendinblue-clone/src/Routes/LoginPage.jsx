@@ -7,9 +7,9 @@ import { AuthContext } from "../Context/AuthContext";
 const LoginPage = () => {
     const value = useContext(AuthContext)
     console.log(value)
+    const error= value.error
   const [data, setData] = useState({ email: "", password: "" });
-  const [error, setError] = useState(false)
-  let navigate  = useNavigate()
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({
@@ -17,16 +17,7 @@ const LoginPage = () => {
       [name]: value,
     });
   };
-  const handleClick = async () => {
-    try {
-      const res = await axios.post("https://reqres.in/api/login", data);
-      console.log(res.data);
-      navigate("/")
-    } catch (error) {
-      console.log(error);
-      setError(true)
-    }
-  };
+ 
   return (
     <Container>
         <Heading m="2rem" >Login page</Heading>
