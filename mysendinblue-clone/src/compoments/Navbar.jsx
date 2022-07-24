@@ -18,9 +18,12 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import React from "react";
-import { Link as ReactLink } from "react-router-dom"
+import { useContext } from "react";
+import { Link as ReactLink } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
+  const { isAuth, toggleAuth } = useContext(AuthContext);
   return (
     <Flex px="5rem" py="2rem">
       <Image
@@ -185,10 +188,45 @@ const Navbar = () => {
         <Link fontSize="lg">Solutions</Link> */}
       </Flex>
       <Spacer />
-      <Flex alignItems="center" gap="1rem">
-        <Link as={ReactLink} to='/login' fontWeight="bold" >Log in</Link>
-        <Button as={ReactLink} to='/signup' fontSize="lg" borderRadius="300" color="white" p="2rem" bg="rgb(0,146,255)" variant="solid" >Sign up free</Button>
-      </Flex>
+      {isAuth ? (
+         <Popover trigger="hover">
+         <PopoverTrigger>
+           <Link fontSize="lg" href="#">
+             My Dashboard
+           </Link>
+         </PopoverTrigger>
+         <PopoverContent boxShadow="lg">
+           <PopoverArrow />
+           <PopoverBody p="2rem">
+             <Flex flexDirection="column">
+               <Link onClick={toggleAuth} href="#" mb="10px">
+                 Log Out
+               </Link>
+               <Spacer />
+               
+             </Flex>
+           </PopoverBody>
+         </PopoverContent>
+       </Popover>
+      ) : (
+        <Flex alignItems="center" gap="1rem">
+          <Link as={ReactLink} to="/login" fontWeight="bold">
+            Log in
+          </Link>
+          <Button
+            as={ReactLink}
+            to="/signup"
+            fontSize="lg"
+            borderRadius="300"
+            color="white"
+            p="2rem"
+            bg="rgb(0,146,255)"
+            variant="solid"
+          >
+            Sign up free
+          </Button>
+        </Flex>
+      )}
     </Flex>
   );
 };
